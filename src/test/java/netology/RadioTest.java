@@ -122,10 +122,10 @@ public class RadioTest {
     @Test
     public void increaseCurrentVolume() {
 
-        radio.setCurrentVolume(100);
+        radio.setCurrentVolume(13);
         radio.increaseVolume();
 
-        int expected = 100;
+        int expected = 14;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);

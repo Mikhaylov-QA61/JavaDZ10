@@ -6,13 +6,13 @@ public class Radio {
     private int currentVolume; // от 0 до 100
 
     public Radio(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
+        this.maxRadioStation = maxRadioStation-1;
     }
 
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {
         if (newCurrentRadioStation > maxRadioStation) {
-            currentRadioStation = maxRadioStation - 1;
+            currentRadioStation = maxRadioStation;
             return;
         }
         if (newCurrentRadioStation <= 0) {
@@ -23,6 +23,7 @@ public class Radio {
     }
 
     public int getCurrentRadioStation() {
+
         return currentRadioStation;
     }
 
@@ -38,7 +39,7 @@ public class Radio {
         if (currentRadioStation > 0) {
             currentRadioStation--;
         } else {
-            currentRadioStation = maxRadioStation-1;
+            currentRadioStation = maxRadioStation;
         }
     }
 
@@ -55,6 +56,7 @@ public class Radio {
     }
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
