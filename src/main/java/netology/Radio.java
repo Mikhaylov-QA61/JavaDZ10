@@ -1,12 +1,18 @@
 package netology;
 
 public class Radio {
-    private int currentRadioStation; // от 0 до 9
+    private int currentRadioStation;
+    private int maxRadioStation = 10;
     private int currentVolume; // от 0 до 100
 
+    public Radio(int maxRadioStation) {
+        this.maxRadioStation = maxRadioStation;
+    }
+
+
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation >= 9) {
-            currentRadioStation = 9;
+        if (newCurrentRadioStation > maxRadioStation) {
+            currentRadioStation = maxRadioStation - 1;
             return;
         }
         if (newCurrentRadioStation <= 0) {
@@ -21,7 +27,7 @@ public class Radio {
     }
 
     public void Next() {
-        if (currentRadioStation < 9) {
+        if (currentRadioStation < maxRadioStation) {
             currentRadioStation++;
         } else {
             currentRadioStation = 0;
@@ -32,7 +38,7 @@ public class Radio {
         if (currentRadioStation > 0) {
             currentRadioStation--;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = maxRadioStation-1;
         }
     }
 
