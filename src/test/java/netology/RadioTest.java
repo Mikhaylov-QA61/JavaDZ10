@@ -28,7 +28,7 @@ public class RadioTest {
     }
 
     @Test
-    public void setCurrentRadioStationAboveMin() {
+    public void setCurrentRadioStationAboveMax() {
 
         radio.setCurrentRadioStation(13);
 
