@@ -1,62 +1,67 @@
 package netology;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@AllArgsConstructor
+@Data
 public class Radio {
     private int currentRadioStation;
-    private int maxRadioStation = 10;
+    private int maxCountRadioStation;
     private int currentVolume; // от 0 до 100
 
-    public Radio(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation-1;
+    public Radio() {
+        this.maxCountRadioStation = 10;
     }
 
+    public Radio(int maxCountRadioStation) {
+        this.maxCountRadioStation = maxCountRadioStation;
+    }
 
-    public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation > maxRadioStation) {
-            currentRadioStation = maxRadioStation;
+    public void setCurrentRadioStation(int currentStation) {
+        if (currentStation > maxCountRadioStation - 1) {
+            this.currentRadioStation = maxCountRadioStation - 1;
             return;
+        } else {
+            currentRadioStation = currentStation;
         }
-        if (newCurrentRadioStation <= 0) {
-            currentRadioStation = 0;
-            return;
-        }
-        currentRadioStation = newCurrentRadioStation;
     }
 
     public int getCurrentRadioStation() {
-
         return currentRadioStation;
     }
 
-    public void Next() {
-        if (currentRadioStation < maxRadioStation) {
+    public void next() {
+        if (currentRadioStation < maxCountRadioStation - 1) {
             currentRadioStation++;
         } else {
             currentRadioStation = 0;
         }
     }
 
-    public void Prev() {
+    public void prev() {
         if (currentRadioStation > 0) {
             currentRadioStation--;
         } else {
-            currentRadioStation = maxRadioStation;
+            currentRadioStation = maxCountRadioStation - 1;
         }
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume >= 100) {
-            currentVolume = 100;
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume >= 100) {
+            this.currentVolume = 100;
             return;
         }
-        if (newCurrentVolume <= 0) {
-            currentVolume = 0;
+        if (currentVolume <= 0) {
+            this.currentVolume = 0;
             return;
         }
-        currentVolume = newCurrentVolume;
+        this.currentVolume = currentVolume;
     }
 
     public int getCurrentVolume() {
-
         return currentVolume;
     }
 

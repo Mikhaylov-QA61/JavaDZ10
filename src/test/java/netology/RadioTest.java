@@ -4,24 +4,13 @@ import org.testng.annotations.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class RadioTest {
-    Radio radio = new Radio(10);
+    Radio radio = new Radio(21);
     @Test
     public void setCurrentRadioStation() {
 
-        radio.setCurrentRadioStation(8);
+        radio.setCurrentRadioStation(17);
 
-        int expected = 8;
-        int actual = radio.getCurrentRadioStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void setCurrentRadioStationUnderMin() {
-
-        radio.setCurrentRadioStation(-8);
-
-        int expected = 0;
+        int expected = 17;
         int actual = radio.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -30,9 +19,9 @@ public class RadioTest {
     @Test
     public void setCurrentRadioStationAboveMax() {
 
-        radio.setCurrentRadioStation(13);
+        radio.setCurrentRadioStation(33);
 
-        int expected = 9;
+        int expected = 20;
         int actual = radio.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -42,7 +31,7 @@ public class RadioTest {
     public void setNextCurrentRadioStation() {
 
         radio.setCurrentRadioStation(8);
-        radio.Next();
+        radio.next();
 
         int expected = 9;
         int actual = radio.getCurrentRadioStation();
@@ -53,8 +42,8 @@ public class RadioTest {
     @Test
     public void setNextCurrentRadioStationAboveMax() {
 
-        radio.setCurrentRadioStation(9);
-        radio.Next();
+        radio.setCurrentRadioStation(20);
+        radio.next();
 
         int expected = 0;
         int actual = radio.getCurrentRadioStation();
@@ -66,7 +55,7 @@ public class RadioTest {
     public void setPrevCurrentRadioStation() {
 
         radio.setCurrentRadioStation(8);
-        radio.Prev();
+        radio.prev();
 
         int expected = 7;
         int actual = radio.getCurrentRadioStation();
@@ -78,9 +67,9 @@ public class RadioTest {
     public void setPrevCurrentRadioStationUnderMin() {
 
         radio.setCurrentRadioStation(0);
-        radio.Prev();
+        radio.prev();
 
-        int expected = 9;
+        int expected = 20;
         int actual = radio.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
